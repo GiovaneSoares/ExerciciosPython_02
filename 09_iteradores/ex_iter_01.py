@@ -10,7 +10,6 @@ retornar o próximo produto na lista cujo estoque seja maior do que zero.
 
 from typing import Self
 
-
 class IteradorEstoque:
     def __init__(self, produtos: list[dict[str, str | float]]) -> None:
         self.produtos: list[dict[str, str | float]] = produtos

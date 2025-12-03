@@ -7,7 +7,6 @@ Após definir a classe, crie uma instância dela e realize algumas operações d
 e saque para verificar o funcionamento dos métodos implementados.
 """
 
-
 class ContaBancaria:
     def __init__(self, titular: str, saldo: float) -> None:
         self.titular: str = titular

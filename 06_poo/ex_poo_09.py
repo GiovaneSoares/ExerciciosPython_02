@@ -46,12 +46,18 @@ class ContaBancaria:
                        print("Esse titular já esta cadastrado.")
 
 class ContaCorrente(ContaBancaria):
-       def __init__(self, nome: str = "Giovane", saldo: float = 0, limite_extra: float = 0) -> None:
+        def __init__(self, nome: str = "Giovane", saldo: float = 0, limite_extra: float = 0) -> None:
               ContaBancaria.__init__(self)
               self.limite_extra: float = limite_extra
         
         def sacar(self, valor: float):
-              pass
+              if 0 < valor <= self.saldo:
+                     self.saldo -= valor
+                     return (f"\nTitular: {self.nome}\n"
+                             f"\nSaque de R$ {valor:.2f}\n"
+                             f"\nNovo saldo: {self.saldo}\n")
+              
+              return f"Erro: Saldo insuficiente ou valor do saque inválido."
        
         def consultarsaldo(self) -> str:
               return f"\nTitular: {self.nome}\nSaldo: {self.saldo:.2f}\nLimite extra: R${self.limite_extra}"
